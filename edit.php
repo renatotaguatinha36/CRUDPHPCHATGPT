@@ -1,12 +1,13 @@
 <?php
 include("db.php");
 
-$id = $_GET['id'];
+ $id = $_GET['id'];
 
 //selecting data associated with this particular id
-$sql = 'SELECT * FROM employees WHERE id=:id';
+$sql = 'SELECT id, first_name, last_name, email, job_title  FROM employees  WHERE id = :id';
 $query = $conn->prepare($sql);
-$query->execute([':id' => $id]);
+$query->bindParam(':id', $id, PDO::PARAM_INT);
+$query->execute();
 
 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     $first_name = $row['first_name'];
