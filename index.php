@@ -3,7 +3,7 @@ include("db.php");
 
  //Display a list of employees
  $query = "SELECT * FROM employees";
-$result = $pdo->query($query);
+$result = $conn->query($query);
 ?>
 
 <!DOCTYPE html>
@@ -19,14 +19,14 @@ $result = $pdo->query($query);
 
     <table class="table table-hover table-dark">
        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Job Title</th>
-            <th scope="col">Actions</th>
-        </tr>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Job Title</th>
+                <th scope="col">Actions</th>
+            </tr>
        </thead>  
         <?php
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
