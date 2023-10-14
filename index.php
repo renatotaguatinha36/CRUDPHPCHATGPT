@@ -1,10 +1,10 @@
 <?php
 include("db.php");
 
-// Display a list of employees
-// $query = "SELECT * FROM employees";
-// $result = $mysqli->query($query);
-// ?>
+ //Display a list of employees
+ $query = "SELECT * FROM employees";
+$result = $pdo->query($query);
+?>
 
 <!DOCTYPE html>
 <html>
@@ -26,7 +26,7 @@ include("db.php");
             <th>Actions</th>
         </tr>
         <?php
-        while ($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo "<tr>";
             echo "<td>" . $row['id'] . "</td>";
             echo "<td>" . $row['first_name'] . "</td>";
