@@ -38,7 +38,7 @@ include("db.php");
         <label>Last Name: <input type="text" name="last_name" required class="form-control"></label>
         <label>Email: <input type="email" name="email" required class="form-control"></label>
         <label>Job Title: <input type="text" name="job_title" required class="form-control"></label>
-        <button type="submit">Add</button>
+        <button type="submit" class="btn btn-primary">Add</button>
     </div>    
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>        

@@ -4,12 +4,13 @@ include("db.php");
  $id = $_GET['id'];
 
 //selecting data associated with this particular id
-$sql = 'SELECT id, first_name, last_name, email, job_title  FROM employees  WHERE id = :id ';
+$sql = 'SELECT  first_name, last_name, email, job_title  FROM employees  WHERE id = :id ';
 $stmt = $conn->prepare($sql);
-$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+$stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $id = $row['id'];
     $first_name = $row['first_name'];
     $last_name = $row['last_name'];
     $email = $row['email'];
@@ -38,11 +39,12 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     <h1>Add Employee</h1><hr><hr>
     <form method="POST" action="add.php">
     <div class="form-group">  
+        <label hidden>ID:<input type="text" name="id" required class="form-control" value="<?php echo $id; ?>"></label>
         <label>First Name: <input type="text" name="first_name" required class="form-control" value="<?php echo $first_name; ?>"></label>
         <label>Last Name: <input type="text" name="last_name" required class="form-control" value="<?php echo $last_name; ?>"></label>
         <label>Email: <input type="email" name="email" required class="form-control" value="<?php echo $email; ?>"></label>
         <label>Job Title: <input type="text" name="job_title" required class="form-control" value="<?php echo $job_title; ?>"></label>
-        <button type="submit">Add</button>
+        <button type="submit" class="btn btn-success">Adicionar</button>
     </div>    
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>        
