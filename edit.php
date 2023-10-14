@@ -4,7 +4,7 @@ include("db.php");
 $id = $_GET['id'];
 
 //selecting data associated with this particular id
-$sql = 'SELECT * FROM users WHERE id=:id';
+$sql = 'SELECT * FROM employees WHERE id=:id';
 $query = $conn->prepare($sql);
 $query->execute([':id' => $id]);
 
