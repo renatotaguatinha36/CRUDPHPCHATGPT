@@ -5,11 +5,11 @@ include("db.php");
 
 //selecting data associated with this particular id
 $sql = 'SELECT id, first_name, last_name, email, job_title  FROM employees  WHERE id = :id';
-$query = $conn->prepare($sql);
-$query->bindParam(':id', $id, PDO::PARAM_INT);
-$query->execute();
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+$stmt->execute();
 
-while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $first_name = $row['first_name'];
     $last_name = $row['last_name'];
     $email = $row['email'];
