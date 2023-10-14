@@ -4,7 +4,7 @@ include("db.php");
  $id = $_GET['id'];
 
 //selecting data associated with this particular id
-$sql = 'SELECT id, first_name, last_name, email, job_title  FROM employees  WHERE id = :id';
+$sql = 'SELECT id, first_name, last_name, email, job_title  FROM employees  WHERE id = :id ';
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
