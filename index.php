@@ -2,9 +2,9 @@
 include("db.php");
 
 // Display a list of employees
-$query = "SELECT * FROM employee";
-$result = $mysqli->query($query);
-?>
+// $query = "SELECT * FROM employees";
+// $result = $mysqli->query($query);
+// ?>
 
 <!DOCTYPE html>
 <html>
