@@ -17,15 +17,17 @@ $result = $pdo->query($query);
 
     <a href="add.php">Add New Employee</a>
 
-    <table>
+    <table class="table table-hover table-dark">
+       <thead>
         <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Job Title</th>
-            <th>Actions</th>
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Job Title</th>
+            <th scope="col">Actions</th>
         </tr>
+       </thead>  
         <?php
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo "<tr>";
